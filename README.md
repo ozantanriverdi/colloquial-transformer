@@ -7,12 +7,13 @@ This project uses OpenAI's GPT API to transform input text into a more colloquia
 ```
 │── model/                 # GPT Model interaction
 │   ├── model.py           # Handles OpenAI API requests
+│   ├── prompt/            # Stores prompt text for GPT model
+│   │   ├── prompt.txt     # System message for text transformation
 │── evaluator/             # Sentence similarity evaluation
 │   ├── evaluator.py       # Computes similarity scores
-│── prompt/                # Stores prompt text for GPT model
-│   ├── prompt.txt         # System message for text transformation
+│── main.py                # Main script
 │── .env                   # API key storage (ignored in Git)
-│── main.py                # Main execution script
+│── requirements.txt       # Required dependencies for installation
 │── README.md              # Project documentation
 ```
 
