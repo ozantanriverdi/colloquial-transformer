@@ -22,8 +22,8 @@ This project uses OpenAI's GPT API to transform input text into a more colloquia
 1. Clone the Repository
 
     ```
-    git clone https://github.com/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/ozantanriverdi/colloquial-transformer.git
+    cd colloquial-transformer
     ```
 
 2. Install Dependencies
