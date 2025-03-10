@@ -32,7 +32,9 @@ This project uses OpenAI's GPT API to transform input text into a more colloquia
     pip install -r requirements.txt
     ```
 
-3. Set Up Environment Variables: Create a ```.env``` file and add your OpenAI API key:
+3. Set Up Environment Variables: 
+    
+    Create a ```.env``` file and add your OpenAI API key:
 
     ```
     OPENAI_API_KEY=your-api-key-here
