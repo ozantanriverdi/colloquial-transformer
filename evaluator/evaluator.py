@@ -39,6 +39,7 @@ class Evaluator:
 
         # Ensure equal sentence count
         if len(input_sentences) != len(output_sentences):
+            print(output_text)
             raise ValueError("Error: Sentence count mismatch between input and output!")
 
         # Encode input and output sentences
