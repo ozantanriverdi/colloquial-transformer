@@ -46,21 +46,27 @@ class GPTModel:
         # Return the system message text
         return sys_msg
 
-    def api_caller(self, input, max_tries=3):
+    def api_caller(self, input_text, max_tries=3):
         """
         Calls the OpenAI GPT API with the given user input.
         Args:
-            user_input (str): The text input to be processed by the model.
+            input_text (str): The text input to be processed by the model.
             max_tries (int, optional): The number of times to retry in case of API failures.
         Returns:
             str | None: The model's generated response if successful, or None if all attempts fail.
         """
 
         # Construct the message
-        message = [
-                {"role": "system", "content": self.sys_msg},
-                {"role": "user", "content": [{"type": "text", "text": input},]}
+        messages = [
+            {"role": "system", "content": self.sys_msg},
+            {"role": "user", "content": "Das Wetter ist heute sehr schlecht."},
+            {"role": "assistant", "content": "Heute ist das Wetter ziemlich mies."},
+            {"role": "user", "content": "Ich gehe nach der Arbeit ins Fitnessstudio."},
+            {"role": "assistant", "content": "Nach der Arbeit werde ich ins Gym gehen."},
+            {"role": "user", "content": "Dieser Bericht wurde veröffentlicht."},
+            {"role": "assistant", "content": "Dieser Bericht ist noch bis 2024 gültig. Fehler: Keine neuen Fakten hinzufügen!"}
         ]
+        messages.append({"role": "user", "content": input_text})
 
         # Initialize retry counter
         attempt = 0
@@ -70,7 +76,7 @@ class GPTModel:
                 # Send the request to OpenAI API
                 response = self.client.chat.completions.create(
                     model=self.model_name,
-                    messages=message,
+                    messages=messages,
                     max_tokens=300) # Limit response length
                 
                 # Return the generated output

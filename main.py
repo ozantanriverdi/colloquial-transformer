@@ -5,7 +5,7 @@ from evaluator import Evaluator
 
 load_dotenv()
 
-def main(input: str):
+def main(input_text: str):
     """
     Main function for processing input text using a GPT model and evaluating its output.
     
@@ -28,16 +28,20 @@ def main(input: str):
     model = GPTModel(api_key=api_key)
     evaluator = Evaluator()
     
-    output = model.api_caller(input)
+    output = model.api_caller(input_text)
+    if output is None:
+        print("Error: Model output is None. Skipping evaluation.")
+        return
+
     print("Transformed Output:")
     print(output)
     
     # Evaluate similarity
-    similarity_result = evaluator.evaluate_output(input, output)
+    similarity_result = evaluator.evaluate_output(input_text, output)
     print("Similarity Evaluation Result:")
     print(similarity_result)
 
 
 if __name__ == '__main__':
     input_text = "Heute ist das Wetter sehr schön."
-    main(input=input_text)
+    main(input_text=input_text)
