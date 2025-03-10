@@ -1,0 +1,5 @@
+openai
+nltk
+numpy
+sentence-transformers
+python-dotenv
