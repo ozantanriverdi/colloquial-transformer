@@ -12,7 +12,7 @@ class GPTModel:
         sys_msg (str): The system message loaded from the prompt file.
     """
     
-    def __init__(self, api_key, model_name="gpt-4o-mini"):
+    def __init__(self, api_key, model_name="gpt-4o"):
         """
         Initializes the GPTModel with the provided API key and model name.
         Args:
